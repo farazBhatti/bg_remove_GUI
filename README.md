@@ -1,6 +1,6 @@
 # Background Removal Tool
 This project is a GUI application for background removal from images using the Deep Image Segmentation (DIS) model.
-The application allows users instantly remove backgrounds from images.
+The application allows users to instantly remove backgrounds from images.
 
 Instantly remove backgrounds from images 
 
@@ -41,5 +41,5 @@ Download DIS [model](https://drive.google.com/file/d/1XHIzgTzY5BQHw140EDIgwIb53K
 [FarazBhatti](https://www.linkedin.com/in/farazahmadbhatti/)
 
 ## Acknowledgment
-[DIS](https://github.com/xuebinqin/DIS)
+[Highly Accurate Dichotomous Image Segmentation （ECCV 2022](https://github.com/xuebinqin/DIS)
 
