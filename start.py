@@ -54,6 +54,8 @@ def remove_background(image_path):
 
 def load_image():
     global processed_image
+    # Display loading message
+    loading_label.config(text="Loading and processing image...")
     file_path = filedialog.askopenfilename()
     display_size = (450, 300)
     if file_path:
@@ -70,6 +72,9 @@ def load_image():
             processed_image_label.image = processed_photo
         except Exception as e:
             messagebox.showerror("Error", f"An error occurred: {e}")
+        finally:
+            # Hide loading message
+            loading_label.config(text="")
 
 def save_image():
     if processed_image:
@@ -79,6 +84,10 @@ def save_image():
             messagebox.showinfo("Save Image", "Image saved successfully!")
     else:
         messagebox.showwarning("Save Image", "No processed image to save.")
+
+def confirm_exit():
+    if messagebox.askquestion("Exit", "Do you really want to exit?") == "yes":
+        app.quit()
 
 app = tk.Tk()
 app.title("Background Removal Tool")
@@ -102,8 +111,11 @@ image_label.grid(row=0, column=0, padx=10)
 processed_image_label = tk.Label(frame, width=450, height=300, bg="black")
 processed_image_label.grid(row=0, column=1, padx=10)
 
+loading_label = tk.Label(app, text="", font=("Helvetica", 12))
+loading_label.grid(row=1, column=0, columnspan=2, pady=10)
+
 button_frame = tk.Frame(app)
-button_frame.grid(row=1, column=0, columnspan=2, pady=10)
+button_frame.grid(row=2, column=0, columnspan=2, pady=10)
 
 load_button = tk.Button(button_frame, text="Load Image", command=load_image)
 load_button.grid(row=0, column=0, padx=10, pady=5)
@@ -111,7 +123,7 @@ load_button.grid(row=0, column=0, padx=10, pady=5)
 save_button = tk.Button(button_frame, text="Save Image", command=save_image)
 save_button.grid(row=0, column=1, padx=10, pady=5)
 
-exit_button = tk.Button(button_frame, text="Exit", command=app.quit)
+exit_button = tk.Button(button_frame, text="Exit", command=confirm_exit)
 exit_button.grid(row=0, column=2, padx=10, pady=5)
 
 app.mainloop()
