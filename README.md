@@ -1,6 +1,9 @@
 # Background Removal Tool
 This project is a GUI application for background removal from images using the Deep Image Segmentation (DIS) model.
-The application allows users to load an image, process it to remove the background and save the resulting image.
+The application allows users instantly remove backgrounds from images.
+
+Instantly remove backgrounds from images 
+
 
 
 ![alt text](https://github.com/farazBhatti/bg_remove_GUI/blob/main/images/displayImage.png)
